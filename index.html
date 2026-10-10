@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Real-time weather dashboard with temperature, humidity and wind speed.">
+  <title>Weatherly | Live Weather Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="dashboard">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Weatherly home">
+        <span class="brand-icon">☀</span> weatherly<span class="dot">.</span>
+      </a>
+      <span class="live-label"><span class="live-dot"></span> LIVE WEATHER</span>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR PERSONAL WEATHER STATION</p>
+        <h1>Discover your<br><span>day's forecast.</span></h1>
+        <p class="subtitle">Real-time weather updates, wherever life takes you.</p>
+
+        <form id="searchForm" class="search-form">
+          <span class="search-icon">⌕</span>
+          <input id="cityInput" type="text" placeholder="Enter a city, e.g. Hyderabad" aria-label="City name" required>
+          <button id="searchButton" type="submit">Search <span>→</span></button>
+        </form>
+        <p class="search-hint">Try Hyderabad, London, Tokyo or New York</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="cloud cloud-one"></div>
+        <div class="cloud cloud-two"></div>
+        <div class="spark spark-one">✦</div>
+        <div class="spark spark-two">✧</div>
+      </div>
+    </section>
+
+    <section id="status" class="status" role="status" aria-live="polite">
+      Search for a city to see its current weather.
+    </section>
+
+    <section id="weatherPanel" class="weather-panel" hidden>
+      <div class="location-row">
+        <div>
+          <p class="section-label">CURRENT WEATHER</p>
+          <h2 id="locationName">Hyderabad, India</h2>
+          <p id="localTime" class="muted"></p>
+        </div>
+        <span id="weatherEmoji" class="weather-emoji" aria-hidden="true">☀️</span>
+      </div>
+
+      <div class="temperature-row">
+        <div>
+          <span id="temperature" class="temperature">--°</span>
+          <span class="unit">C</span>
+        </div>
+        <div class="condition">
+          <p id="description">Clear sky</p>
+          <p class="muted">Feels like <strong id="feelsLike">--°C</strong></p>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <article class="metric-card">
+          <span class="metric-icon">💧</span>
+          <p>Humidity</p>
+          <strong id="humidity">--%</strong>
+          <span class="metric-note">Moisture in air</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon">🌬️</span>
+          <p>Wind speed</p>
+          <strong id="wind">-- <small>km/h</small></strong>
+          <span class="metric-note">Air movement</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon">🌡️</span>
+          <p>Feels like</p>
+          <strong id="feelsMetric">--°C</strong>
+          <span class="metric-note">Perceived temperature</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-icon">☁️</span>
+          <p>Cloud cover</p>
+          <strong id="cloudCover">--%</strong>
+          <span class="metric-note">Sky coverage</span>
+        </article>
+      </div>
+
+      <div class="updated-row">
+        <span>Weather data powered by Open-Meteo</span>
+        <button id="refreshButton" type="button" class="refresh-button">↻ Refresh weather</button>
+      </div>
+    </section>
+
+    <footer>
+      <p>Made with <span class="heart">♥</span> for curious minds.</p>
+      <p>Weather forecasts by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></p>
+    </footer>
+  </main>
+</body>
+</html>
